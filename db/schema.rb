@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2022_12_23_060241) do
     t.string "title"
     t.text "catch_copy"
     t.text "concept"
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_prototypes_on_user_id"
@@ -72,4 +72,5 @@ ActiveRecord::Schema.define(version: 2022_12_23_060241) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "prototypes"
   add_foreign_key "comments", "users"
+  add_foreign_key "prototypes", "users"
 end
